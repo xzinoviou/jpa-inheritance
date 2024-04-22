@@ -7,7 +7,7 @@ import lombok.Data;
  * @author : Xenofon Zinoviou
  */
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Data
 @Table(name = "EMPLOYEE", schema = "jpa_test_db_schema")
 public abstract class Employee {
