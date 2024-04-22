@@ -7,8 +7,8 @@ Each type is showcased per branch:
  - joined table
  - per class table 
 
-Here's a list of default env vars I used, and are configured in the project.
-You can also use yours but make sure you do the necessary changes in the `application.properties` file config in the classpath,
+You can use the env vars supplied in the .env file , and are already configured in the project.
+Alternatively, you can also use yours but make sure you do the necessary changes in the `application.properties` file config in the classpath,
 as well as updating `schema` value in all codebase occurrences.
 
 For example:
@@ -19,16 +19,3 @@ public abstract class Employee {
     //...
 }
 ```
- 
-
-> POSTGRES_DB_SCHEMA=jpa_test_db_schema
-> 
-> POSTGRES_USER=postgres
-> 
-> POSTGRES_PASSWORD=postgres
-> 
-> POSTGRES_DB=jpa_test_db
-> 
-> POSTGRES_PORT=5432
-> 
-> POSTGRES_URL=jdbc:postgresql://localhost:${POSTGRES_PORT}/${POSTGRES_DB}
