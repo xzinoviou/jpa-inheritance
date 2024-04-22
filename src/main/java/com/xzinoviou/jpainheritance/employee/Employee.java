@@ -7,8 +7,9 @@ import lombok.Data;
  * @author : Xenofon Zinoviou
  */
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 @Data
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "CATEGORY")
 @Table(name = "EMPLOYEE", schema = "jpa_test_db_schema")
 public abstract class Employee {
 
