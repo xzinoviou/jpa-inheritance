@@ -15,25 +15,25 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ManagerController {
 
-    private final ManagerRepository managerRepository;
+    private final ManagerService managerService;
 
     @GetMapping
-    public ResponseEntity<List<Manager>> getAllManagers() {
-        return ResponseEntity.ok(managerRepository.findAll());
+    public ResponseEntity<List<Manager>> getAll() {
+        return ResponseEntity.ok(managerService.getAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Manager> getManagerById(@PathVariable Long id) {
-        return ResponseEntity.ok(managerRepository.findById(id).orElseThrow(() -> new RuntimeException("Manager not found: " + id)));
+    public ResponseEntity<Manager> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(managerService.getById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Manager> createDeveloper(@RequestBody Manager manager) {
-        return new ResponseEntity<>(managerRepository.save(manager), HttpStatus.CREATED);
+    public ResponseEntity<Manager> create(@RequestBody Manager manager) {
+        return new ResponseEntity<>(managerService.create(manager), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteManagerById(@PathVariable Long id) {
-        managerRepository.deleteById(id);
+    public void deleteById(@PathVariable Long id) {
+        managerService.delete(id);
     }
 }

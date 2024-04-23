@@ -15,26 +15,26 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DeveloperController {
 
-    private final DeveloperRepository developerRepository;
+    private DeveloperService developerService;
 
     @GetMapping
-    public ResponseEntity<List<Developer>> getAllDevelopers() {
-        return ResponseEntity.ok(developerRepository.findAll());
+    public ResponseEntity<List<Developer>> getAll() {
+        return ResponseEntity.ok(developerService.getAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Developer> getDeveloperById(@PathVariable Long id) {
-        return ResponseEntity.ok(developerRepository.findById(id).orElseThrow(() -> new RuntimeException("Developer not found: " + id)));
+    public ResponseEntity<Developer> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(developerService.getById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Developer> createDeveloper(@RequestBody Developer developer) {
-        return new ResponseEntity<>(developerRepository.save(developer), HttpStatus.CREATED);
+    public ResponseEntity<Developer> create(@RequestBody Developer developer) {
+        return new ResponseEntity<>(developerService.create(developer), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteDeveloperById(@PathVariable Long id) {
-        developerRepository.deleteById(id);
+    public void deleteById(@PathVariable Long id) {
+        developerService.delete(id);
     }
 
 }
