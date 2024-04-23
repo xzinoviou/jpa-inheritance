@@ -18,6 +18,6 @@ import lombok.Setter;
 @Getter
 public class Manager extends Employee {
 
-    @Column(name = "DIVISION")
+    @Column(name = "DIVISION", length = 50)
     private String division;
 }

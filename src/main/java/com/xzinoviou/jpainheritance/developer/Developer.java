@@ -18,6 +18,6 @@ import lombok.Setter;
 @Getter
 public class Developer extends Employee {
 
-    @Column(name = "SENIORITY")
+    @Column(name = "SENIORITY", length = 50)
     private String seniority;
 }
