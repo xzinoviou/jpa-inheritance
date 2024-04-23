@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DeveloperController {
 
-    private DeveloperService developerService;
+    private final DeveloperService developerService;
 
     @GetMapping
     public ResponseEntity<List<Developer>> getAll() {
